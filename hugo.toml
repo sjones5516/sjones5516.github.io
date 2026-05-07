@@ -16,7 +16,7 @@ rss = true
 # home page profile
 avatar = 'sjones.nova@gmail.com'
 name = 'Samuel Jones'
-bio = "Clean code is not a myth. I've seen it"
+bio = "Clean code is not a myth. I've seen it."
 
 
 [menu]
