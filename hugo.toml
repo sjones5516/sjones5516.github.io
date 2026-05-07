@@ -2,3 +2,32 @@ baseURL = 'https://samslist.net/'
 locale = 'en-us'
 title = 'Samslist'
 theme = "paper"
+author = "Samuel Jones"
+copyright = "© 2026, Samuel Jones"
+
+[params]
+color = 'linen'
+
+# socials
+github = 'sjones5516'
+instagram = 'ray.schmidley'
+rss = true
+
+# home page profile
+avatar = 'sjones.nova@gmail.com'
+name = 'Samuel Jones'
+bio = "Clean code is not a myth. I've seen it"
+
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/posts/hello-world"
+    weight = 10
+  [[menu.main]]
+    identifier = "resume"
+    name = "Resume"
+    url = "/resume/"
+    weight = 10
