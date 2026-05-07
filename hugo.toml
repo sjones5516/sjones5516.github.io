@@ -1,3 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://samslist.net/'
 locale = 'en-us'
-title = 'My New Hugo Project'
+title = 'Samslist'
+theme = "paper"
