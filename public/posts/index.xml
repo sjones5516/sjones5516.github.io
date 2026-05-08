@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on SamsList</title>
+    <link>https://samslist.net/posts/</link>
+    <description>Recent content in Posts on SamsList</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© 2026, Samuel Jones</copyright>
+    <lastBuildDate>Thu, 07 May 2026 13:29:48 -0400</lastBuildDate>
+    <atom:link href="https://samslist.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello World</title>
+      <link>https://samslist.net/posts/hello-world/</link>
+      <pubDate>Thu, 07 May 2026 13:29:48 -0400</pubDate>
+      <guid>https://samslist.net/posts/hello-world/</guid>
+      <description>&lt;p&gt;Hello! I&amp;rsquo;m Samuel, a Computer Science student at Florida Polytechnic University.&#xA;I&amp;rsquo;m creating this website to share my projects, the things I&amp;rsquo;ve learned building them, and my contact information.&#xA;My interests span Linux systems, compilers, human and societal impacts of AI, and FOSS in general.&#xA;I hope some of the concepts and write-ups here are useful or interesting to others as well.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
