@@ -1,6 +1,6 @@
 baseURL = 'https://samslist.net/'
 locale = 'en-us'
-title = 'Samslist'
+title = 'SamsList'
 theme = "paper"
 author = "Samuel Jones"
 copyright = "© 2026, Samuel Jones"
@@ -31,3 +31,7 @@ bio = "Clean code is not a myth. I've seen it."
     name = "Resume"
     url = "/resume/resume.pdf"
     weight = 10
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
