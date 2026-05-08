@@ -29,5 +29,5 @@ bio = "Clean code is not a myth. I've seen it."
   [[menu.main]]
     identifier = "resume"
     name = "Resume"
-    url = "/resume/"
+    url = "/resume/resume.pdf"
     weight = 10
