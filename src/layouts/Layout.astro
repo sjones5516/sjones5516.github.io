@@ -1,23 +1,92 @@
+---
+interface Props {
+	title: string;
+	description: string;
+}
+const { title, description } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	:root {
+		--bg: #ffffff;
+		--bg-alt: #f4f6f9;
+		--line: #dde2ea;
+		--line-strong: #c3cbd8;
+		--ink: #111827;
+		--ink-soft: #4b5563;
+		--accent: #1d4ed8;
+		--accent-soft: #e8efff;
+		--sans: "Hanken Grotesk", system-ui, sans-serif;
+		--mono: "IBM Plex Mono", ui-monospace, monospace;
+		color-scheme: light dark;
+	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--bg: #0d1117;
+			--bg-alt: #161b22;
+			--line: #262d38;
+			--line-strong: #3a4352;
+			--ink: #e6edf3;
+			--ink-soft: #9aa6b5;
+			--accent: #6ea0ff;
+			--accent-soft: #1b2a4a;
+		}
+	}
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+	html {
+		background: var(--bg);
+		scroll-behavior: smooth;
+	}
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		min-height: 100vh;
+		font-family: var(--sans);
+		font-size: 1.0625rem;
+		line-height: 1.65;
+		color: var(--ink);
+		background: var(--bg);
+	}
+	a {
+		color: inherit;
+	}
+	:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+	}
+	::selection {
+		background: var(--accent-soft);
+	}
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
 	}
 </style>

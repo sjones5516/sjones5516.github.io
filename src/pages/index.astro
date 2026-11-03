@@ -1,11 +1,593 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const stack = [
+	{
+		group: "Languages",
+		items: ["Python", "C", "C++", "TypeScript", "JavaScript", "HTML and CSS"],
+	},
+	{
+		group: "Frameworks and libraries",
+		items: [
+			"Nuxt",
+			"FastAPI",
+			"NumPy",
+			"SciPy",
+			"Matplotlib",
+			"Libsodium",
+			"Zod",
+			"Vitest",
+			"Pytest",
+			"Google Test",
+		],
+	},
+	{
+		group: "Tools and infrastructure",
+		items: [
+			"Linux",
+			"Docker",
+			"Docker Swarm",
+			"Git",
+			"MongoDB",
+			"MySQL",
+			"Cloudflare",
+			"Clerk",
+			"CMake",
+			"Sphinx",
+			"Jira",
+			"Confluence",
+		],
+	},
+];
+
+const projectTags = ["C++", "Libsodium", "Google Test", "CMake"];
+
+// The Eternal Endurance deployment, in the order a request travels through it.
+const path = [
+	{
+		node: "Visitor",
+		note: "Someone opens the events site.",
+	},
+	{
+		node: "Cloudflare WAF",
+		note: "Custom rules drop bot and abuse traffic before it reaches the server.",
+	},
+	{
+		node: "Cloudflare Tunnel",
+		note: "The server dials out, so no ports are publicly exposed.",
+	},
+	{
+		node: "Docker Swarm on Debian",
+		note: "Credentials live in Swarm secrets. Rolling deployments to staging cause no downtime.",
+	},
+	{
+		node: "Nuxt app",
+		note: "Clerk handles sign-in and sessions, so credentials are stored by a dedicated provider, not by us.",
+	},
+	{
+		node: "MongoDB Atlas",
+		note: "Events, organizers and everything else the platform remembers.",
+	},
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="Samuel Jones, full-stack developer"
+	description="Samuel Jones is a software engineering student at Florida Polytechnic University and a contract full-stack developer who builds secure, well-tested software."
+>
+	<a class="skip" href="#work">Skip to experience</a>
+
+	<header class="top">
+		<span class="mono">sjones5516</span>
+		<nav aria-label="Sections">
+			<a href="#work">Experience</a>
+			<a href="#projects">Projects</a>
+			<a href="#stack">Stack</a>
+			<a href="#resume">Resume</a>
+			<a href="#contact">Contact</a>
+		</nav>
+	</header>
+
+	<main>
+		<section class="hero">
+			<h1>
+				<span class="line">Samuel</span>
+				<span class="line">Jones</span>
+			</h1>
+			<div class="hero-copy">
+				<p class="lede">
+					I build secure, well-tested software, from low-level cryptography in C++
+					to deployed web apps.
+				</p>
+				<p>
+					Computer Science student at <strong>Florida Polytechnic University</strong
+					>{" "}(B.S., Applied Mathematics minor, graduating May 2027) and contract
+					full-stack developer.
+				</p>
+				<p class="soft">
+					Interested in security, infrastructure, and shipping reliable systems.
+				</p>
+			</div>
+		</section>
+
+		<section id="work" class="work">
+			<div class="work-head">
+				<h2>Contract full-stack developer</h2>
+				<p class="meta">
+					<strong>Eternal Endurance Resiliency Service</strong><br />
+					Satellite Beach, FL. May 2026 to present.
+				</p>
+				<p>
+					A community event platform where local organizers create, promote, and
+					manage events in one place. Here is the route a request takes through it.
+				</p>
+			</div>
+
+			<ol class="path" id="path">
+				{
+					path.map((p, i) => (
+						<li style={`--i:${i}`}>
+							<span class="node" aria-hidden="true" />
+							<h3>{p.node}</h3>
+							<p>{p.note}</p>
+						</li>
+					))
+				}
+				<span class="packet" aria-hidden="true"></span>
+			</ol>
+		</section>
+
+		<section id="projects" class="projects">
+			<h2>Projects</h2>
+			<article class="project">
+				<div>
+					<h3>Secure Data Container</h3>
+					<p class="meta">March 2026 to May 2026</p>
+					<ul class="tags">
+						{projectTags.map((t) => <li>{t}</li>)}
+					</ul>
+				</div>
+				<ul class="points">
+					<li>
+						Designed and implemented a secure data container using envelope
+						encryption. Each document's master key is wrapped with X25519 public
+						keys, and the data is encrypted with XSalsa20-Poly1305.
+					</li>
+					<li>
+						Enforced role-based authorization through an access control matrix,
+						restricting read, write, and share operations to permitted roles.
+					</li>
+					<li>
+						Led a team of 4, breaking requirements into scoped tasks and assigning
+						work by strength, delivering the project on schedule.
+					</li>
+				</ul>
+			</article>
+		</section>
+
+		<section id="stack" class="stack">
+			<h2>Stack</h2>
+			<div class="groups">
+				{
+					stack.map((g) => (
+						<div class="group">
+							<h3>{g.group}</h3>
+							<ul>
+								{g.items.map((item) => (
+									<li>{item}</li>
+								))}
+							</ul>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="school">
+			<h2>Education</h2>
+			<p>
+				<strong>Florida Polytechnic University</strong>, Lakeland, FL. Expected May
+				2027.
+			</p>
+			<p>
+				B.S. in Computer Science, minor in Applied Mathematics, concentration in
+				Software Engineering.
+			</p>
+			<p class="soft">
+				Coursework: Computer Networks, Operating Systems Concepts, Software Design
+				and Architecture, Algorithm Design and Analysis, Computer Architecture, Data
+				Structures, Database 1.
+			</p>
+		</section>
+
+		<section id="resume" class="resume">
+			<h2>Resume</h2>
+			<p>Education, experience and skills on one page.</p>
+			<p class="actions">
+				<a class="button" href="/resume.pdf" download="Samuel-Jones-Resume.pdf"
+					>Download resume (PDF)</a
+				>
+				<a class="link" href="/resume.pdf" target="_blank" rel="noopener"
+					>View in browser</a
+				>
+			</p>
+		</section>
+
+		<section id="contact" class="contact">
+			<h2>Get in touch</h2>
+			<p>
+				<a class="big" href="mailto:samueljones5516@gmail.com"
+					>samueljones5516@gmail.com</a
+				>
+			</p>
+			<p>
+				<a href="https://github.com/sjones5516">github.com/sjones5516</a>
+			</p>
+		</section>
+	</main>
+
+	<footer>
+		<span class="mono">Samuel Jones, 2026</span>
+	</footer>
 </Layout>
+
+<script>
+	// Start the packet only once the route is on screen.
+	const path = document.getElementById("path");
+	if (path) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				if (entries.some((e) => e.isIntersecting)) {
+					path.classList.add("run");
+					io.disconnect();
+				}
+			},
+			{ threshold: 0.35 },
+		);
+		io.observe(path);
+	}
+</script>
+
+<style>
+	.mono {
+		font-family: var(--mono);
+		font-size: 0.85rem;
+	}
+	.skip {
+		position: absolute;
+		left: 1rem;
+		top: -4rem;
+		background: var(--accent);
+		color: var(--bg);
+		padding: 0.5rem 0.9rem;
+		z-index: 10;
+	}
+	.skip:focus {
+		top: 1rem;
+	}
+
+	.top,
+	main,
+	footer {
+		width: min(1080px, 100% - 2rem);
+		margin-inline: auto;
+	}
+	.top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-block: 1.25rem;
+		border-bottom: 1px solid var(--line);
+	}
+	.top nav {
+		display: flex;
+		gap: 1.5rem;
+	}
+	.top a {
+		text-decoration: none;
+		color: var(--ink-soft);
+		font-size: 0.95rem;
+	}
+	.top a:hover {
+		color: var(--ink);
+		text-decoration: underline;
+		text-underline-offset: 4px;
+	}
+
+	h1,
+	h2,
+	h3 {
+		line-height: 1.05;
+		margin: 0;
+	}
+	h2 {
+		font-size: clamp(1.9rem, 4vw, 2.6rem);
+		font-weight: 800;
+		letter-spacing: -0.02em;
+	}
+	p {
+		margin: 0 0 1rem;
+		max-width: 62ch;
+	}
+	strong {
+		font-weight: 700;
+	}
+	.soft,
+	.meta {
+		color: var(--ink-soft);
+	}
+	.meta strong {
+		color: var(--ink);
+	}
+
+	section {
+		padding-block: clamp(3.5rem, 9vw, 6.5rem);
+		border-bottom: 1px solid var(--line-strong);
+	}
+
+	/* hero */
+	.hero {
+		display: grid;
+		gap: 2.5rem;
+		padding-top: clamp(3rem, 8vw, 5.5rem);
+	}
+	h1 {
+		font-size: clamp(3rem, 9vw, 6rem);
+		font-weight: 800;
+		letter-spacing: -0.035em;
+		line-height: 1;
+	}
+	h1 .line {
+		display: inline;
+	}
+	h1 .line + .line::before {
+		content: " ";
+	}
+	.hero-copy {
+		max-width: 62ch;
+	}
+	.lede {
+		font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+		line-height: 1.3;
+		font-weight: 500;
+		letter-spacing: -0.01em;
+	}
+	.hero-copy .lede {
+		display: block;
+		margin-bottom: 1.25rem;
+	}
+
+	/* work */
+	.work {
+		display: grid;
+		gap: 3rem;
+	}
+	.work-head h2 {
+		margin-bottom: 1rem;
+	}
+	.path {
+		list-style: none;
+		margin: 0;
+		padding: 0 0 0 2.25rem;
+		position: relative;
+	}
+	/* the pipe the request travels through */
+	.path::before {
+		content: "";
+		position: absolute;
+		left: 0.6rem;
+		top: 0.9rem;
+		bottom: 1.5rem;
+		border-left: 2px dashed var(--line-strong);
+	}
+	.path li {
+		position: relative;
+		padding-bottom: 2rem;
+	}
+	.path li:last-of-type {
+		padding-bottom: 0;
+	}
+	.node {
+		position: absolute;
+		left: -2.25rem;
+		top: 0.2rem;
+		width: 1.25rem;
+		height: 1.25rem;
+		border: 2px solid var(--ink-soft);
+		background: var(--bg);
+		border-radius: 50%;
+		transition: background 0.3s, border-color 0.3s;
+	}
+	.path h3 {
+		font-size: 1.25rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+		margin-bottom: 0.3rem;
+	}
+	.path li p {
+		margin: 0;
+		color: var(--ink-soft);
+		max-width: 52ch;
+	}
+	.packet {
+		position: absolute;
+		left: 0.6rem;
+		top: 0.9rem;
+		width: 14px;
+		height: 14px;
+		margin-left: -7px;
+		background: var(--accent);
+		border-radius: 2px;
+		transform: rotate(45deg);
+		opacity: 0;
+	}
+	.path.run .packet {
+		animation: travel 3.6s cubic-bezier(0.55, 0, 0.35, 1) forwards;
+	}
+	.path.run .node {
+		animation: lit 0.4s forwards;
+		animation-delay: calc(var(--i) * 0.6s);
+	}
+	@keyframes travel {
+		0% {
+			opacity: 1;
+			top: 0.9rem;
+		}
+		100% {
+			opacity: 1;
+			top: calc(100% - 1.5rem);
+		}
+	}
+	@keyframes lit {
+		to {
+			background: var(--accent);
+			border-color: var(--accent);
+		}
+	}
+
+	/* stack */
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.75rem 1.5rem;
+		margin-top: 1.5rem;
+	}
+	.button {
+		display: inline-block;
+		padding: 0.7rem 1.25rem;
+		background: var(--accent);
+		color: var(--bg);
+		font-weight: 700;
+		text-decoration: none;
+		border-radius: 6px;
+	}
+	.button:hover {
+		filter: brightness(1.1);
+	}
+	.link {
+		text-underline-offset: 4px;
+	}
+	.project {
+		display: grid;
+		gap: 1.5rem 3rem;
+	}
+	.project h3 {
+		font-size: 1.35rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+		margin-bottom: 0.35rem;
+	}
+	.project .meta {
+		margin-bottom: 0.9rem;
+	}
+	.tags {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+	.tags li {
+		font-family: var(--mono);
+		font-size: 0.85rem;
+		padding: 0.15rem 0.6rem;
+		border: 1px solid var(--line-strong);
+		background: var(--bg-alt);
+	}
+	.points {
+		margin: 0;
+		padding-left: 1.2rem;
+		max-width: 62ch;
+	}
+	.points li {
+		margin-bottom: 0.75rem;
+	}
+	.stack h2,
+	.projects h2,
+	.school h2,
+	.resume h2,
+	.contact h2 {
+		margin-bottom: 2rem;
+	}
+	.groups {
+		display: grid;
+		gap: 2.5rem;
+	}
+	.group h3 {
+		font-size: 1rem;
+		font-weight: 500;
+		color: var(--ink-soft);
+		padding-bottom: 0.6rem;
+		margin-bottom: 0.9rem;
+		border-bottom: 1px solid var(--line-strong);
+	}
+	.group ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 0.6rem;
+	}
+	.group li {
+		font-family: var(--mono);
+		font-size: 0.95rem;
+		padding: 0.25rem 0.7rem;
+		border: 1px solid var(--line-strong);
+		background: var(--bg-alt);
+	}
+
+	/* contact */
+	.big {
+		font-size: clamp(1.4rem, 5.2vw, 2.8rem);
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		text-decoration-thickness: 3px;
+		text-decoration-color: var(--accent);
+		text-underline-offset: 6px;
+		overflow-wrap: anywhere;
+	}
+	.big:hover {
+		background: var(--accent-soft);
+		text-decoration: none;
+	}
+	.contact {
+		border-bottom: 0;
+	}
+	footer {
+		padding-block: 1.5rem 2.5rem;
+		border-top: 1px solid var(--line-strong);
+		color: var(--ink-soft);
+	}
+
+	@media (min-width: 820px) {
+		.work {
+			grid-template-columns: 5fr 6fr;
+			gap: 4rem;
+			align-items: start;
+		}
+		.work-head {
+			position: sticky;
+			top: 2rem;
+		}
+		.project {
+			grid-template-columns: 5fr 6fr;
+		}
+		.groups {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.packet {
+			display: none;
+		}
+		.path .node {
+			background: var(--accent);
+			border-color: var(--accent);
+		}
+	}
+</style>
